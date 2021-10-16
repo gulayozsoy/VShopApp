@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_margin="1dp"
+        app:strokeWidth="1dp"
+        app:cardCornerRadius="16dp"
+        android:outlineAmbientShadowColor="@color/lightGray"
+        app:strokeColor="@android:color/darker_gray">
+        
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            
+            <ImageView
+                android:layout_marginTop="1dp"
+                android:id="@+id/product_image"
+                android:layout_width="140dp"
+                android:layout_height="140dp"/>
+            
+            <TextView
+                android:id="@+id/product_detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tool:text="Göz küpe"
+                android:layout_marginLeft="16dp"
+                android:textSize="15sp"
+                android:ellipsize="end"
+                android:maxLines="1"/>
+
+            <TextView
+                android:id="@+id/product_shop_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tool:text="menessa"
+                android:layout_marginLeft="16dp"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

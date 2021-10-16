@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/maintoolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/white"
+            app:title="Ürün veya vitrin ara"
+            app:titleMarginStart="50dp"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:titleTextColor="@android:color/darker_gray" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swiperefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior = "@string/appbar_scrolling_view_behavior">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:clipToPadding="true"
+            android:fitsSystemWindows="true">
+
+            <LinearLayout
+                android:id="@+id/linearlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp">
+
+                </androidx.viewpager.widget.ViewPager>
+
+                <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
+                    android:id="@+id/dot2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:dotsColor="@android:color/darker_gray"
+                    app:dotsSize="15dp"
+                    app:dotsSpacing="5dp"
+                    app:selectedDotColor="@android:color/white"
+                    app:stiffness="300" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/products_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:padding="8dp"
+                        android:textAllCaps="true"
+                        android:textSize="13sp"
+                        tools:text="en yeni ürünler">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/products_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="8dp"
+                        android:padding="8dp"
+                        android:text="tümü >"
+                        android:textAllCaps="true"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/products_recycler_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:nestedScrollingEnabled="false"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+
+                        </androidx.recyclerview.widget.RecyclerView>
+                    </LinearLayout>
+
+                </androidx.core.widget.NestedScrollView>
+
+                <RelativeLayout
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/lightGray">
+
+                    <TextView
+                        android:id="@+id/categories_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="8dp"
+                        android:padding="8dp"
+                        android:textAllCaps="true"
+                        android:textSize="13sp"
+                        tools:text="kategoriler"/>
+
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:scrollbars="none"
+                        android:layout_below="@+id/categories_title">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/categories_recycler_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:nestedScrollingEnabled="false"
+                                android:orientation="horizontal"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+                            </androidx.recyclerview.widget.RecyclerView>
+
+                        </LinearLayout>
+
+                    </androidx.core.widget.NestedScrollView>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/collections_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:padding="8dp"
+                        android:textAllCaps="true"
+                        android:textSize="13sp"
+                        tools:text="koleksiyonlar">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/collections_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="8dp"
+                        android:padding="8dp"
+                        android:text="tümü >"
+                        android:textAllCaps="true"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:id="@+id/collections_image"
+                        android:layout_below="@+id/collections_title"
+                        android:layout_marginLeft="8dp"
+                        android:layout_width="440dp"
+                        android:layout_height="220dp"
+                        android:background="@drawable/rounded_corner"/>
+
+                    <TextView
+                        android:id="@+id/collections_subtitle"
+                        android:layout_width="320dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/collections_title"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="68dp"
+                        android:layout_marginBottom="40dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textAlignment="center"
+                        tools:text="deneme"
+                        android:textAllCaps="true"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:id="@+id/collections_definition"
+                        android:layout_width="320dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/collections_title"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="96dp"
+                        android:layout_marginBottom="40dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textAlignment="center"
+                        tools:text="deneme2"
+                        android:textAllCaps="true"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/white"/>
+                </RelativeLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="24dp"
+                    android:paddingBottom="12dp"
+                    android:paddingStart="16dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/editor_cover"
+                            android:layout_width="400dp"
+                            android:layout_height="190dp" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="22dp"
+                            app:cardElevation="0dp"
+                            android:background="@android:color/transparent">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:background="@null">
+
+                                <TextView
+                                    android:id="@+id/editorshop_title"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_marginLeft="8dp"
+                                    android:paddingLeft="8dp"
+                                    android:textAllCaps="true"
+                                    android:textSize="14sp"
+                                    android:layout_marginTop="4dp"
+                                    tools:text="editör seçimi vitrinler"
+                                    android:background="@null"/>
+
+                                <TextView
+                                    android:id="@+id/editor_all"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginTop="4dp"
+                                    android:layout_marginRight="8dp"
+                                    android:paddingRight="8dp"
+                                    android:text="tümü >"
+                                    android:layout_alignRight="@id/editorshop_title"
+                                    android:textAllCaps="true"
+                                    android:textSize="14sp"
+                                    android:background="@null"/>
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="50dp"
+                            android:layout_marginLeft="8dp"
+                            app:cardElevation="0dp"
+                            android:background="@android:color/transparent">
+
+                            <androidx.core.widget.NestedScrollView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scrollbars="none">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <androidx.recyclerview.widget.RecyclerView
+                                        android:id="@+id/editorshop_recycler_view"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginBottom="8dp"
+                                        android:nestedScrollingEnabled="false"
+                                        android:orientation="horizontal"
+                                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+
+                                    </androidx.recyclerview.widget.RecyclerView>
+
+                                </LinearLayout>
+
+                            </androidx.core.widget.NestedScrollView>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/newshops_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="8dp"
+                        android:padding="8dp"
+                        android:textAllCaps="true"
+                        android:textSize="13sp"
+                        tools:text="en yeni vitrinler"/>
+
+                    <TextView
+                        android:id="@+id/newshops_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="8dp"
+                        android:padding="8dp"
+                        android:text="tümü >"
+                        android:textAllCaps="true"
+                        android:textSize="13sp" />
+
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:scrollbars="none"
+                        android:layout_below="@+id/newshops_title">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/ns_recycler_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:nestedScrollingEnabled="false"
+                                android:orientation="horizontal"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+                            </androidx.recyclerview.widget.RecyclerView>
+
+                        </LinearLayout>
+
+                    </androidx.core.widget.NestedScrollView>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_marginRight="16dp"
+    android:layout_marginBottom="16dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview1"
+        android:layout_width="280dp"
+        android:layout_height="250dp"
+        android:layout_margin="2dp"
+        app:cardCornerRadius="4dp"
+        android:outlineAmbientShadowColor="@color/lightGray"
+        app:strokeColor="@android:color/darker_gray">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_marginTop="1dp"
+                android:id="@+id/dns_image"
+                android:scaleType="center"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                tool:src="@drawable/ic_launcher_foreground"/>
+
+            <TextView
+                android:layout_marginTop="16dp"
+                android:id="@+id/dns_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tool:text="Ahşapevi"
+                android:layout_marginLeft="16dp"
+                android:textSize="14sp"
+                android:ellipsize="end"
+                android:maxLines="1"/>
+
+            <TextView
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="3dp"
+                android:id="@+id/dns_definition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tool:text="Evimizde kullanabilceğimiz.."
+                android:layout_marginLeft="16dp"
+                android:textSize="12sp"
+                android:ellipsize="end"
+                android:maxLines="1"/>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:id="@+id/dns_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tool:text="5"
+                    android:layout_marginLeft="16dp"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:layout_alignBaseline="@id/dns_count"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:id="@+id/dns_urun"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ürün"
+                    android:textAllCaps="true"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

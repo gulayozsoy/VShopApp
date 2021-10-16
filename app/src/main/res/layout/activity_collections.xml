@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/dco_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:titleTextColor="@android:color/white"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
+        app:titleMarginStart="100dp"
+        app:title="Koleksiyonlar"
+        android:textAlignment="center">
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/dco_image"
+        android:layout_below="@+id/dco_toolbar"
+        android:layout_margin="16dp"
+        android:layout_width="420dp"
+        android:layout_height="220dp"
+        android:background="@drawable/rounded_corner"/>
+
+    <TextView
+        android:id="@+id/dco_title"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dco_toolbar"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="deneme" />
+
+    <TextView
+        android:id="@+id/dco_definition"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dco_title"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        tools:text="deneme2" />
+
+</RelativeLayout>
